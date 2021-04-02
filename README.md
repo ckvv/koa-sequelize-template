@@ -1,5 +1,5 @@
 # koa-template
-基于koa的一个用户注册登陆功能的项目模版，集成了日志、jest、eslint、sequlize 等开箱即用的功能
+基于koa的一个用户注册登陆功能的项目模版，集成了日志、jest、eslint、sequlize、参数验证 等开箱即用的功能
 # scripts
 + `npm run start`, 生产环境启动项目
 + `npm run dev`,`开发环境下启动项目,内容改变会自动重启服务
