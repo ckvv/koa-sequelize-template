@@ -4,8 +4,8 @@ const CustomError = require('../utils/customError');
 
 class UserService extends BaseService {
   async create(params) {
+    const role = 2;
     const { username, password } = params;
-    const salt = utils.getRandomStr(6);
     const findRes = await this.models.user.findOne({
       where: {
         username,
@@ -13,7 +13,9 @@ class UserService extends BaseService {
     });
     if (findRes) throw new CustomError(this.ERROR.ALREADY_EXIT, `${username} 已存在`);
 
+    const salt = utils.getRandomStr(6);
     const createRes = await this.models.user.create({
+      role,
       username,
       password: utils.getMd5(`${password}${salt}`),
       salt,
@@ -36,11 +38,17 @@ class UserService extends BaseService {
   async info(params) {
     const { id } = params;
     const createRes = await this.models.user.findOne({
+      attributes: ['id', 'username', 'role'],
       where: {
         id,
       },
     });
     return createRes;
+  }
+
+  async list() {
+    const allUsers = await this.models.user.findAll();
+    return allUsers;
   }
 }
 

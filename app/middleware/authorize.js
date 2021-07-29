@@ -7,7 +7,7 @@ const { ERROR, config } = KT;
 /**
  *验证用户权限
  */
-const authorize = () => async (ctx, next) => {
+const authorize = (roles) => async (ctx, next) => {
   // 验证用户权限
   const token = ctx.headers.token || ctx.cookies.get('token') || ctx.getMixinParams().token;
 
@@ -30,8 +30,13 @@ const authorize = () => async (ctx, next) => {
     return ctx.error(ERROR.NO_PERMISSION);
   }
 
+  const { role, id } = userRes;
+  if (roles && !roles.includes(role)) {
+    return ctx.error(ERROR.NO_PERMISSION);
+  }
   ctx.user = {
-    id: userRes.id,
+    id,
+    role,
   };
 
   await next();

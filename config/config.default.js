@@ -1,6 +1,6 @@
 module.exports = {
   name: 'koa-template',
-  port: 9999,
+  port: 8001,
   cookie: {
     key: 'mjhgfcd@#$%^e456789o',
     maxage: 1000 * 60 * 60 * 24 * 7,

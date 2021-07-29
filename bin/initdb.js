@@ -19,7 +19,9 @@ const models = require('../app/model');
 const { user } = models;
 
 (async () => {
-  await user.drop();
-  await user.sync();
+  await user.sync({
+    force: true,
+    match: /_test$/,
+  });
   process.exit();
 })();

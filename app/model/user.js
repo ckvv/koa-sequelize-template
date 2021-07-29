@@ -1,7 +1,7 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../utils/sequelize');
 
-const { BIGINT, STRING } = DataTypes;
+const { BIGINT, STRING, INTEGER } = DataTypes;
 
 const user = sequelize.define('user', {
   id: {
@@ -21,6 +21,10 @@ const user = sequelize.define('user', {
   },
   salt: {
     type: STRING,
+    allowNull: false,
+  },
+  role: {
+    type: INTEGER,
     allowNull: false,
   },
 }, {

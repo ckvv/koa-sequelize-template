@@ -8,14 +8,17 @@
     "test": "NODE_ENV=test npm run initdb; npm run jest",
     "lint": "eslint . --fix",
     "jest": "jest",
-    "initdb": "node ./bin/initdb.js"
+    "initdb": "NODE_ENV=dev node ./bin/initdb.js"
   },
   "license": "MIT",
   "dependencies": {
     "@ckpack/parameter": "^2.0.0",
+    "@commitlint/cli": "^13.1.0",
+    "@commitlint/config-conventional": "^13.1.0",
     "@koa/cors": "^3.1.0",
     "@koa/router": "^10.0.0",
     "dotenv": "^8.2.0",
+    "husky": "^7.0.1",
     "jsonwebtoken": "^8.5.1",
     "koa": "^2.13.1",
     "koa-bodyparser": "^4.3.0",

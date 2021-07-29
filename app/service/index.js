@@ -1,3 +1,5 @@
-const requireDirectory = require('require-directory');
+const user = require('./user');
 
-module.exports = requireDirectory(module);
+module.exports = {
+  user,
+};
