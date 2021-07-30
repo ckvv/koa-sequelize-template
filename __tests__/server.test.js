@@ -30,32 +30,32 @@ describe('get /user/info', () => {
   });
 });
 
-describe('post /user/signup', () => {
-  test('get /user/signup 注册参数错误', async () => {
-    const response = await request(server).post('/user/signup').send({
+describe('post /sign/signup', () => {
+  test('get /sign/signup 注册参数错误', async () => {
+    const response = await request(server).post('/sign/signup').send({
       username: user.username,
     });
     expect(response.body.code).toEqual(ERROR.ILLEGAL_PARAMETER.code);
   });
 
-  test('post /user/signup 注册参数正常', async () => {
-    const signup = await request(server).post('/user/signup').send({
+  test('post /sign/signup 注册参数正常', async () => {
+    const signup = await request(server).post('/sign/signup').send({
       username: user.username,
       password: user.password,
     });
     expect(signup.body.code).toEqual(0);
 
-    const signup1 = await request(server).post('/user/signup').send({
+    const signup1 = await request(server).post('/sign/signup').send({
       username: user.username,
       password: user.password,
     });
     expect(signup1.body.code).toEqual(ERROR.ALREADY_EXIT.code);
 
-    const signin = await request(server).post('/user/signin').send({
+    const signin = await request(server).post('/sign/signin').send({
       password: user.password,
     });
     expect(signin.body.code).toEqual(ERROR.ILLEGAL_PARAMETER.code);
-    const signin1 = await request(server).post('/user/signin').send({
+    const signin1 = await request(server).post('/sign/signin').send({
       username: user.username,
       password: user.password,
     });

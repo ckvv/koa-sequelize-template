@@ -1,5 +1,5 @@
 {
-  "name": "koa-template",
+  "name": "koa-sequelize-template",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
