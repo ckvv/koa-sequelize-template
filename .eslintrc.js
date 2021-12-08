@@ -14,5 +14,6 @@ module.exports = {
   },
   rules: {
     'consistent-return': 0,
+    'default-param-last': 0,
   },
 };

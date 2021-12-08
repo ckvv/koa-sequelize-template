@@ -1,4 +1,5 @@
 const service = require('../service');
+const parameter = require('../utils/parameter');
 const { RULES } = require('../utils/parameterRules');
 const { jwtSign } = require('../utils/jwt');
 
@@ -10,7 +11,7 @@ async function signUp(ctx) {
     username: RULES.username,
     password: RULES.password,
   };
-  const error = ctx.parameter.validate(rules, mixinParams);
+  const error = parameter.validate(rules, mixinParams);
   if (error) return ctx.error(ERROR.ILLEGAL_PARAMETER, error);
 
   const res = await service.user.create(mixinParams);
@@ -23,7 +24,7 @@ async function signIn(ctx) {
     username: RULES.username,
     password: RULES.password,
   };
-  const error = ctx.parameter.validate(rules, mixinParams);
+  const error = parameter.validate(rules, mixinParams);
   if (error) return ctx.error(ERROR.ILLEGAL_PARAMETER, error);
 
   const userRes = await service.user.signin(mixinParams);

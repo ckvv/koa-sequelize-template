@@ -1,7 +1,7 @@
-const Parameter = require('@ckpack/parameter');
+const { Parameter } = require('@ckpack/parameter');
 
 const parameter = new Parameter({
-  convert: true,
+  isCoerceTypes: true,
 });
 
 module.exports = parameter;
