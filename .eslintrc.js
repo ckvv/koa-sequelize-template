@@ -15,5 +15,6 @@ module.exports = {
   rules: {
     'consistent-return': 0,
     'default-param-last': 0,
+    'import/prefer-default-export': 'off',
   },
 };

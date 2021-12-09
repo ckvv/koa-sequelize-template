@@ -2,9 +2,7 @@ require('dotenv').config({
   path: './config/.env',
 });
 const config = require('./config');
-const {
-  logger,
-} = require('./app/utils/log4js');
+const { logger } = require('./app/utils/log4js');
 const ERROR = require('./app/constant/ERROR');
 
 const KT = {
@@ -14,6 +12,4 @@ const KT = {
 };
 global.KT = KT;
 
-const server = require('./app/app').start();
-
-module.exports = server;
+require('./app/app').start();
