@@ -1,6 +1,7 @@
 const { verifyToken } = require('../utils/authorize');
+const { ERROR } = require('../constant');
 
-const { ERROR, config } = KT;
+const { config } = KT;
 /**
  *验证用户权限
  */

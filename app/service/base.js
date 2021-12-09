@@ -1,6 +1,6 @@
 const models = require('../model');
+const { ERROR } = require('../constant');
 
-const { ERROR } = KT;
 class BaseService {
   constructor() {
     this.models = models;

@@ -2,8 +2,9 @@ const service = require('../service');
 const parameter = require('../utils/parameter');
 const { RULES } = require('../utils/parameterRules');
 const { jwtSign } = require('../utils/jwt');
+const { ERROR } = require('../constant');
 
-const { ERROR, config: { cookie } } = KT;
+const { config: { cookie } } = KT;
 
 async function signUp(ctx) {
   const mixinParams = ctx.getMixinParams();

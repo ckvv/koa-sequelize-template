@@ -18,6 +18,15 @@ function mountWs(server) {
       console.log(ws.userId);
       console.log(`${rawData}`);
     });
+    ws.on('close', async () => {
+      console.log('ws: close');
+    });
+    ws.on('error', async () => {
+      console.log('ws: error');
+    });
+    ws.on('error', async () => {
+      console.log('ws: error');
+    });
   });
 }
 

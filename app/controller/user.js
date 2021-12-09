@@ -1,6 +1,5 @@
 const service = require('../service');
-
-const { ERROR } = KT;
+const { ERROR } = require('../constant');
 
 async function info(ctx) {
   const userRes = await service.user.info(ctx.user);

@@ -1,4 +1,5 @@
 const CustomError = require('../utils/customError');
+const { logger } = require('../utils/log4js');
 
 /**
  *打印请求日志处理异常
@@ -13,10 +14,10 @@ const reslogger = () => async (ctx, next) => {
       return ctx.error(error, error.message);
     }
 
-    KT.logger.error(error);
+    logger.error(error);
     return ctx.error();
   } finally {
-    KT.logger.info(`${ctx.method} ${ctx.url} - ${Date.now() - start}ms`);
+    logger.info(`${ctx.method} ${ctx.url} - ${Date.now() - start}ms`);
   }
 };
 

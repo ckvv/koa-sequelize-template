@@ -1,6 +1,7 @@
 const { Sequelize } = require('sequelize');
+const { logger } = require('./log4js');
 
-const { config: { db }, logger } = KT;
+const { config: { db } } = KT;
 
 const sequelize = new Sequelize({
   dialect: 'postgres',

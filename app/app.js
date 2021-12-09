@@ -6,6 +6,7 @@ const reslogger = require('./middleware/reslogger');
 const { mountWs } = require('./middleware/ws');
 const context = require('./extend/context');
 const moundRouter = require('./router');
+const { logger } = require('./utils/log4js');
 
 const { config } = KT;
 
@@ -23,7 +24,7 @@ module.exports = {
     const server = http.createServer(app.callback());
     mountWs(server);
     server.listen(config.port);
-    KT.logger.info(`${config.name} is running at: http://localhost:${config.port}`);
+    logger.info(`${config.name} is running at: http://localhost:${config.port}`);
     return server;
   },
 };
